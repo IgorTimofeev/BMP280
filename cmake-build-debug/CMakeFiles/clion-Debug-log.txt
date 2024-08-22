@@ -1,0 +1,1 @@
+CMakeLists.txt not found in C:\Users\Igor\Documents\MCU\ESP32\BMP280 Select CMakeLists.txt

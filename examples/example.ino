@@ -10,7 +10,20 @@ float pressureToAltitude(float pressureInPa, float seaLevelInPa) {
 void setup() {
 	Serial.begin(115200);
 
-	bmp.begin();
+	if (!_bmp.begin()) {
+		Serial.println("BMP280 initialization failed, check wiring");
+
+		while (1)
+			delay(100);
+	}
+
+	_bmp.configure(
+		BMP280Mode::Normal,
+		BMP280Oversampling::X2,
+		BMP280Oversampling::X16,
+		BMP280Filter::X16,
+		BMP280StandbyDuration::Ms125
+	);
 }
 
 void loop() {
